@@ -101,11 +101,6 @@ tfidf_vectorizer = TfidfVectorizer(use_idf=True)
 X_train_vectors_tfidf = tfidf_vectorizer.fit_transform(X_train)
 X_val_vectors_tfidf = tfidf_vectorizer.transform(X_val)
 
-# Word2vec
-# Fit and transform
-df_train['clean_text_tok']=[nltk.word_tokenize(i) for i in df_train['clean_text']] #convert preprocessed sentence to tokenized sentence
-model = Word2Vec(df_train['clean_text_tok'],min_count=1)  #min_count=1 means word should be present at least across all documents,
-w2v = dict(zip(model.wv.index_to_key, model.wv.vectors))  #combination of word and its vector
 
 # FITTING THE CLASSIFICATION MODEL using Logistic Regression(tf-idf)
 
